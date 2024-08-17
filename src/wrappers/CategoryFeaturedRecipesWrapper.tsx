@@ -25,15 +25,16 @@ const CategoryFeaturedRecipesWrapper = () => {
     }, [slug])
 
     if (loading) {
-        return <p>Loading...</p>
+        return <p className="px-5">Loading...</p>
     }
 
     if (error) {
-        return <p>Error loading data: {error}</p>
+        console.log(error)
+        return <p className="px-5">Error fetching data</p>
     }
 
     if (!category) {
-        return <p>Category not found</p>
+        return <p className="px-5">Category not found</p>
     }
 
 
@@ -63,7 +64,7 @@ const CategoryFeaturedRecipesWrapper = () => {
                                 <FeaturedRecipeCard recipe={recipe} />
                             </SwiperSlide>
                         ))
-                    ) : (<p>Belum ada recipe di category berikut</p>)
+                    ) : (<p className="px-5">Belum ada recipe di category berikut</p>)
                     }
                 </Swiper>
             </div>

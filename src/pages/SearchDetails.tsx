@@ -52,9 +52,7 @@ const SearchDetails = () => {
         <>
             <nav className="flex items-center justify-between px-5 mt-[30px]">
                 <Link to="/" className="flex shrink-0">
-                <a className="flex shrink-0">
                     <img src="assets/images/logos/logo.svg" alt="logo" />
-                </a>
                 </Link>
                 <a href="#">
                     <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0_10px_20px_0_#D6D6D6AB] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
@@ -67,8 +65,8 @@ const SearchDetails = () => {
                 </a>
             </nav>
             <div className="px-5 mt-[30px]">
-                {loading && <p>Loading...</p>}
-                {error && <p>{error}</p>}
+                {loading && <p className="px-5">Loading...</p>}
+                {error && <p className="px-5">Error fetching</p>}
                 <div
                     className="flex items-center rounded-full p-[5px_14px] pr-[5px] gap-[10px] bg-white shadow-[0_12px_30px_0_#D6D6D652] transition-all duration-300 focus-within:ring-1 focus-within:ring-[#FF4C1C]"
                 >
@@ -99,7 +97,7 @@ const SearchDetails = () => {
                     {searchResults.length > 0 ? (
                         searchResults.map((recipe) => (
                             <RecipeCardResult key={recipe.id} recipe={recipe} />
-                        ))) : (<p>Belum ada recipe terkait</p>)
+                        ))) : (<p className="px-5">Belum ada recipe terkait</p>)
                     }
                 </div>
             </section>

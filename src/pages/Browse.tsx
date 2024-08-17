@@ -1,10 +1,11 @@
 import CategoryWrapper from "../wrappers/CategoryWrapper";
 import BrowseFeaturedRecipesWrapper from "../wrappers/BrowseFeaturedRecipesWrapper";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Browse() {
+
 
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate();
@@ -21,9 +22,9 @@ export default function Browse() {
     return (
         <>
             <nav className="flex items-center justify-between px-5 mt-[30px]">
-                <a href="index.html" className="flex shrink-0">
+                <Link to={"/"} className="flex shrink-0">
                     <img src="/assets/images/logos/logo.svg" alt="logo" />
-                </a>
+                </Link>
                 <a href="#">
                     <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0_10px_20px_0_#D6D6D6AB] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
                         <img

@@ -3,6 +3,7 @@ import CategoryCard from "../components/CategoryCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Category } from "../types/type"
+// import { Link } from "react-router-dom"
 
 const CategoryWrapper = () => {
 
@@ -23,11 +24,12 @@ const CategoryWrapper = () => {
     }, [])
 
     if (loading) {
-        return <p>Loading...</p>
+        return <p className="px-5">Loading...</p>
     }
 
     if (error) {
-        return <p>Error loading data: {error}</p>
+        console.log(error)
+        return <p className="px-5">Error fetching data</p>
     }
 
     return (
@@ -45,9 +47,11 @@ const CategoryWrapper = () => {
                     slidesOffsetAfter={20}
                 >
                     {categories.map((category) => (
+                        // <Link to={`/category/${category.slug}`} key={category.id}>
                         <SwiperSlide key={category.id} className="!w-fit pb-[30px]">
                             <CategoryCard category={category} />
                         </SwiperSlide>
+                        // </Link>
                     ))}
                 </Swiper>
             </div>

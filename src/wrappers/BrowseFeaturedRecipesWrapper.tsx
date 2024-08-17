@@ -23,43 +23,44 @@ const BrowseFeaturedRecipesWrapper = () => {
     }, [])
 
     if (loading) {
-        return <p>Loading...</p>
+        return <p className="px-5">Loading...</p>
     }
 
     if (error) {
-        return <p>Error loading data: {error}</p>
+        console.log(error)
+        return <p className="px-5">Error fetching data</p>
     }
 
 
-  return (
-      <section id="MadeByPeople">
-          <div className="flex items-center justify-between px-5">
-              <h2 className="font-bold">Made by People</h2>
-              <a
-                  href="#"
-                  className="font-semibold text-sm leading-[21px] text-[#FF4C1C]"
-              >
-                  Explore All
-              </a>
-          </div>
-          <div className="swiper w-full mt-3">
-              <Swiper
-                  className="w-full mt-3"
-                  direction="horizontal"
-                  spaceBetween={16}
-                  slidesPerView="auto"
-                  slidesOffsetBefore={20}
-                  slidesOffsetAfter={20}
-              >
-                {recipes.map((recipe) => (
-                  <SwiperSlide key={recipe.id} className="!w-fit">
-                      <FeaturedRecipeCard recipe={recipe} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-          </div>
-      </section>
-  )
+    return (
+        <section id="MadeByPeople">
+            <div className="flex items-center justify-between px-5">
+                <h2 className="font-bold">Made by People</h2>
+                <a
+                    href="#"
+                    className="font-semibold text-sm leading-[21px] text-[#FF4C1C]"
+                >
+                    Explore All
+                </a>
+            </div>
+            <div className="swiper w-full mt-3">
+                <Swiper
+                    className="w-full mt-3"
+                    direction="horizontal"
+                    spaceBetween={16}
+                    slidesPerView="auto"
+                    slidesOffsetBefore={20}
+                    slidesOffsetAfter={20}
+                >
+                    {recipes.map((recipe) => (
+                        <SwiperSlide key={recipe.id} className="!w-fit">
+                            <FeaturedRecipeCard recipe={recipe} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+        </section>
+    )
 }
 
 export default BrowseFeaturedRecipesWrapper
